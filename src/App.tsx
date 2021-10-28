@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react'
 import './App.css';
+import TaskList from './components/TaskList';
+import { Task } from './interfaces/task.interface';
+import logo from './logo.svg'
 
-function App() {
+// creacion de custom types con interface
+// si queremos una propiedad que sea cualquier tipo de dato usamos "any"
+interface Props {
+  title?: string // ? hace que la propiedad sea opcional
+}
+
+export function App({ title }: Props) {
+
+  const [tasks, setTasks] = useState<Task[]>([
+    {
+      id: 1,
+      title: "Learn react",
+      description: "Learn react",
+      completed: false
+    }
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-dark text-white" style={{ height: "100vh" }}>
+
+      <nav className="navbar navbar-dark bg-primary">
+        <div className="container">
+          <a href="/" className="navbar-brand">
+            <img src={logo} alt="React logo" style={{ width: "4rem" }} />
+            {title}
+          </a>
+        </div>
+      </nav>
+
+      <main className="container p-4">
+        <TaskList tasks={tasks} />
+      </main>
     </div>
   );
 }
 
-export default App;
+
