@@ -46,3 +46,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 template CRA con typescript: npx create-react-app . --template typescript
+
+para cualquier modulo de npm que se instale usando typescript se debe 
+instalar su soporte en typescript (@types) como dependencia de desarrollo
