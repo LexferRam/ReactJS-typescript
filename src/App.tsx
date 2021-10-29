@@ -34,7 +34,15 @@ export function App({ title }: Props) {
       </nav>
 
       <main className="container p-4">
-        <TaskList tasks={tasks} />
+        <div className="col-md-4">
+          Task Form
+        </div>
+
+        <div className="col-md-8">
+          <div className="row">
+            <TaskList tasks={tasks} />
+          </div>
+        </div>
       </main>
     </div>
   );

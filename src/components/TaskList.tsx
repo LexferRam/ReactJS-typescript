@@ -10,7 +10,9 @@ const TaskList = ({ tasks }: Props) => {
     return (
         <>
             {tasks.map(task => (
-                <TaskCard task={task} />
+                <div className="col-md-4">
+                    <TaskCard task={task} />
+                </div>
             ))}
         </>
     )
