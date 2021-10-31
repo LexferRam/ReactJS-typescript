@@ -39,7 +39,7 @@ const TaskForm = ({addNewTask}:Props) => {
                 <input 
                    ref={inputTitle}
                    type="text" 
-                   placeholder="Write a title testlx" 
+                   placeholder="Escribe un titulo" 
                    name='title' 
                    value={task.title}
                    className='form-control mb-3 rounded-0 shadow-none border-0' 
