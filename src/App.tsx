@@ -22,6 +22,17 @@ export function App({ title }: Props) {
     }
   ])
 
+  const getCurrentTimestamp = (): number => new Date().getTime();
+
+  const addNewTask = (task: Task) => {
+    setTasks([
+      ...tasks,
+      {...task, id: getCurrentTimestamp(), completed: false},
+    ])
+  }
+
+  const deleteTask = (id: number) => setTasks(tasks.filter(task => task.id !== id))
+
   return (
     <div className="bg-dark text-white" style={{ height: "100vh" }}>
 
@@ -37,12 +48,12 @@ export function App({ title }: Props) {
       <main className="container p-4">
         <div className="row">
           <div className="col-md-4">
-            <TaskForm />
+            <TaskForm addNewTask={addNewTask} />
           </div>
 
           <div className="col-md-8">
             <div className="row">
-              <TaskList tasks={tasks} />
+              <TaskList deleteTask={deleteTask} tasks={tasks} />
             </div>
           </div>
         </div>
