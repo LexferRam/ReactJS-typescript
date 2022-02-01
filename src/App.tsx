@@ -14,12 +14,12 @@ interface Props {
 export function App({ title }: Props) {
 
   const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      title: "Learn react",
-      description: "Learn react",
-      completed: false
-    }
+    // {
+    //   id: 1,
+    //   title: "Learn react",
+    //   description: "Learn react",
+    //   completed: false
+    // }
   ])
 
   const getCurrentTimestamp = (): number => new Date().getTime();

@@ -8,6 +8,7 @@ interface Props {
     addNewTask : (task: Task) => void
 }
 
+// All the form elements events are the type React.ChangeEvent<T> , where T is the HTML Element type
 type HandleInputChange = ChangeEvent<HTMLInputElement|HTMLTextAreaElement>
 
 const initialState = {
