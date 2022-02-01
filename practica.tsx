@@ -1,19 +1,28 @@
-import {useState} from 'react'  
+import {useState, ChangeEvent} from 'react'   
 
 interface Props{
-    title?: string;
+    title?:string,
+    addNewTask : (task:Task) => void
 }
 
 interface Task{
-    id:number;
+    id: number;
     title?:string;
     description:string;
     completed?:boolean;
 }
 
-export function App({title}: Props){
+type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+
+const App = ({title}: Props):JSX.Element => {
 
     const [task, setTask] = useState<Task[]>([])
 
-    return(null)
+    const handleInputChange = ({target:{name, value}}:HandleInputChange) => {
+        setTask({...task, [name]:value})
+    }
+
+    return(<></>)
 }
+
+export default App
