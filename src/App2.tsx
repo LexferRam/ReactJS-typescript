@@ -58,11 +58,13 @@ function counterReducer(state: State, action: Action): State {
         case ActionKind.Call_API:
             return {
                 ...state,
-                todos: payload
+                todos: payload,
+                loading: false
             }
         case ActionKind.Set_loading:
             return {
                 ...state,
+                todos: [],
                 loading: payload
             }
         default:
@@ -89,7 +91,6 @@ const App2 = (): JSX.Element => {
                         dispatch({ type: ActionKind.Set_loading, payload: true })
                         const { data } = await axios.get<ITodo[]>('https://jsonplaceholder.typicode.com/todos')
                         dispatch({ type: ActionKind.Call_API, payload: data })
-                        dispatch({ type: ActionKind.Set_loading, payload: false })
                     }}>
                     Call API
                 </button>

@@ -262,6 +262,8 @@ The useReducer hook is a hook that allows you to create a state, update it, and 
 
 It takes a reducer-function and an initial state as arguments and returns a tuple of a new state and a dispatch function.
 
+In Redux, a reducer is a pure function that takes an action and the previous state of the application and returns the new state. The action describes what happened and it is the reducer's job to return the new state based on that action.
+
 ```javascript
 import { useReducer } from 'react'
 import axios from 'axios'
