@@ -5,7 +5,7 @@ import {AiOutlinePlus} from 'react-icons/ai'
 import { Task } from '../interfaces/task.interface'
 
 interface Props {
-    addNewTask : (task: Task) => void
+    addNewTask : (task: Task) => void;
 }
 
 // All the form elements events are the type React.ChangeEvent<T> , where T is the HTML Element type

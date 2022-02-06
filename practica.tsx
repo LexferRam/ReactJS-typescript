@@ -1,28 +1,31 @@
-import {useState, ChangeEvent} from 'react'   
+import { useContext, createContext, PropsWithChildren, ReactNode } from 'react'
 
-interface Props{
-    title?:string,
-    addNewTask : (task:Task) => void
+interface IAppContext {
+    title?: string;
 }
 
-interface Task{
-    id: number;
-    title?:string;
-    description:string;
-    completed?:boolean;
+const defaultState = {
+    title: 'Default Title'
 }
 
-type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//Partial: Make all properties in an object optional
+// export const DataContext = createContext<Partial<IAppContext>>(defaultState);
 
-const App = ({title}: Props):JSX.Element => {
+//Required: Make all properties in an object required
 
-    const [task, setTask] = useState<Task[]>([])
+const DataContext = createContext<IAppContext>(defaultState);
 
-    const handleInputChange = ({target:{name, value}}:HandleInputChange) => {
-        setTask({...task, [name]:value})
-    }
-
-    return(<></>)
+type ContextProp = {
+    children?: ReactNode
 }
 
-export default App
+// export const AppProvider = ({ children }:PropsWithChildren<{}>): JSX.Element => {
+export const AppProvider = ({ children }: ContextProp): JSX.Element => {
+    return (
+        <DataContext.Provider value={{ title: 'Hello' }}>
+            {children}
+        </DataContext.Provider>
+    )
+}
+
+export const useAppContext = () => useContext(DataContext) as IAppContext
