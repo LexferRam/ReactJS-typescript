@@ -5,10 +5,12 @@ import 'bootswatch/dist/yeti/bootstrap.min.css'
 import './index.css';
 import {App} from './App';
 import reportWebVitals from './reportWebVitals';
+import App2 from './App2';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App title="React and TypeScript" />
+    {/* <App title="React and TypeScript" /> */}
+    <App2 />
   </React.StrictMode>,
   document.getElementById('root')
 );
