@@ -376,3 +376,9 @@ const App2 = (): JSX.Element => {
 
 export default App2
 ```
+
+**Hacer que todas las propiedades dentro de una interfaz de TypeScript sean opcionales**
+
+```javascript
+Partial<T>
+```
